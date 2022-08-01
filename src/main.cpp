@@ -32,7 +32,7 @@ int right_speed; //ir reading for right sensor
 int left_speed; //ir reading for left sensor
 int prev_right_speed; //previous duty cycle for speed of right motor
 int prev_left_speed; //previous duty cycle for speed of left motor
-int max_val = 700;
+int max_kp_val = 700;
 int startSpeed = 1850; 
 int turnSpeed = 1100;
 int prevTime = millis();
@@ -49,7 +49,7 @@ boolean turn = false;
 
 void setup() {
     pinMode(LEFT, INPUT_PULLUP);
-    pinMode(RIGHT, INPUT_PULLUP);
+    pinMode(RIGHT_REFLECT, INPUT_PULLUP);
     pinMode(PROPORTIONAL, INPUT_PULLUP);
     pinMode(IR_L, INPUT_PULLUP);
     pinMode(IR_R, INPUT_PULLUP);
@@ -68,7 +68,7 @@ void setup() {
 
     potent = analogRead(PROPORTIONAL);
     
-    kp = max_val*((double) potent/1022);
+    kp = max_kp_val*((double) potent/1022);
     kd = 5*((double) potent/1022);
 
     delay(3000);
@@ -111,7 +111,7 @@ void loop() {
   double x = 0;
 
   potent = analogRead(PROPORTIONAL);
-  kp = max_val*((double) potent/1022);
+  kp = max_kp_val*((double) potent/1022);
   //kd = 5*((double) potent/1022);
 
   if (leftOn == true || rightOn == true) {
@@ -123,7 +123,7 @@ void loop() {
   pwm_start(RIGHT_MOTOR_2, clock_freq, right_speed, RESOLUTION_12B_COMPARE_FORMAT);
 
   int left_val = analogRead(LEFT) - 200;
-  int right_val = analogRead(RIGHT);
+  int right_val = analogRead(RIGHT_REFLECT);
 
   leftOn = false;
   rightOn = false;
