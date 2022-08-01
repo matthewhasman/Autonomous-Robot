@@ -119,7 +119,7 @@ void loop() {
     prev_left = leftOn;
   }
 
-  pwm_start(LEFT_MOTOR_1, clock_freq, left_speed, RESOLUTION_12B_COMPARE_FORMAT);
+  pwm_start(LEFT_FWD, clock_freq, left_speed, RESOLUTION_12B_COMPARE_FORMAT);
   pwm_start(RIGHT_MOTOR_2, clock_freq, right_speed, RESOLUTION_12B_COMPARE_FORMAT);
 
   int left_val = analogRead(LEFT) - 200;
@@ -264,7 +264,7 @@ void loop() {
     prev_left = leftOn;
   }
 
-  pwm_start(LEFT_MOTOR_1, clock_freq, left_speed, RESOLUTION_12B_COMPARE_FORMAT);
+  pwm_start(LEFT_FWD, clock_freq, left_speed, RESOLUTION_12B_COMPARE_FORMAT);
   pwm_start(RIGHT_MOTOR_2, clock_freq, right_speed, RESOLUTION_12B_COMPARE_FORMAT);
 
   int left_val = num_high_L;
