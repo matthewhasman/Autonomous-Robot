@@ -13,7 +13,7 @@ an IR beam of a particular frequency.
 - Can selectively follow an IR beam of a particular frequency, while filtering out other sources of IR radiation
 - Able to follow a line of tape
 - Can detect and retrieve treasures using sonar sensors
-- Uses a PID control algorithm
+- Uses a PID control algorithm (located in main.cpp in src)
 
 ## Electrical Systems
 
